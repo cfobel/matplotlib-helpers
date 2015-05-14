@@ -147,11 +147,14 @@ if __name__ == '__main__':
     # Usage example
     from PIL import Image
     import numpy as np
+    import pkg_resources
 
     # Create arbitrary points and labels
     fig, axes = plt.subplots(2)
 
-    im = Image.open('fixtures/testimage.png')
+    image_path = pkg_resources.resource_filename('matplotlib_helpers',
+                                                 'fixtures/testimage.png')
+    im = Image.open(image_path)
 
     axes[0].imshow(np.array(im))
     axes[1].set_xlim(0, 640)
